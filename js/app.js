@@ -98,8 +98,8 @@ async function handleSubmit(event){
                 <p>${data.url}</p>
             </div>
             <div class="right">
-                <p>${data.result_url}</p>
-                <button data-newLink=${data.result_url}>Copy</button>
+                <div><p>${data.result_url}</p></div>
+               <div> <button data-newLink=${data.result_url}>Copy</button></div>
             </div>
         </div>
         <!--link end-->
