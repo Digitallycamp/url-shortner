@@ -1,3 +1,11 @@
+
+const mobile_menu = document.querySelector('.mobile_menu')
+const menuIcon = document.querySelector('.menuIcon')
+
+menuIcon.addEventListener('click', ()=>{
+    menuIcon.classList.toggle('change')
+    mobile_menu.classList.toggle('toggle')
+})
 // Todo
 
 // 1 Accept url from user through our form
@@ -30,7 +38,6 @@ async function handleSubmit(event){
 
     let url = { url: userLink }
   
-   
     let baseUrl  =  `https://cors-anywhere.herokuapp.com/https://cleanuri.com/api/v1/shorten`
   
    let header =  {
@@ -42,7 +49,6 @@ async function handleSubmit(event){
     let data = await res.json();
     const {result_url} = data
     console.log(res)
-
 
     let shortenLink = {
         id: Math.ceil(Math.random() * 10000),
@@ -61,7 +67,6 @@ async function handleSubmit(event){
     storeData.push(shortenLink);
     localStorage.setItem('shortLink', JSON.stringify(storeData ))
         
-   
     Toastify({
         text: "Url submitted successfully",
         className: "info",
@@ -70,10 +75,6 @@ async function handleSubmit(event){
           background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
       }).showToast();
-
-
-
-    
     
       form.reset()
       location.reload()
@@ -116,10 +117,7 @@ buttons.forEach( button => {
         button.addEventListener('click', function(event){
             let newUrl = event.currentTarget.dataset.newlink;
            navigator.clipboard.writeText(newUrl)
-           
-
-            
-            console.log(newUrl)
+        
             Toastify({
                 text: "Url copied",
                 className: "info",
